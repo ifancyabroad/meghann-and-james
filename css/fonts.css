@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Mirtha Display";
+    src: url("../assets/fonts/Mirtha-Display-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "To Record";
+    src: url("../assets/fonts/torecord-regular.otf") format("opentype"),
+            url("../assets/fonts/torecord-regular.woff2") format("woff2");
+}

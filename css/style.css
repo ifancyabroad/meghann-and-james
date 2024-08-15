@@ -1,0 +1,136 @@
+@import url("fonts.css");
+@import url("reset.css");
+
+body {
+    min-height: 100vh;
+    background-image: url("../assets/images/mas_palou_backdrop.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Mirtha Display", sans-serif;
+    color: #133244;
+    padding: 120px 0 422px;
+}
+
+.logo {
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.venue {
+    margin-bottom: 36px;
+}
+
+.venue-dates {
+    position: relative;
+    margin-bottom: 36px;
+}
+
+.venue-dates img {
+    max-width: 281px;
+    margin: auto;
+}
+
+.venue-dates .dates {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+}
+
+.venue-dates .dates p {
+    text-align: center;
+    font-size: 38.4px;
+}
+
+.venue-dates .dates p:nth-child(2) {
+    color: #DADCD7;
+}
+
+.venue-dates .dates p:nth-child(2)::after {
+    content: "";
+    display: block;
+    width: 98px;
+    height: 1px;
+    background-color: #DADCD7;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.venue-logo {
+    margin: auto;
+    margin-bottom: 63px;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+    margin-bottom: 85px;
+}
+
+.details h6 {
+    font-family: "To Record", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3.6px;
+    margin-bottom: 12px;
+}
+
+.details p {
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: -0.9px;
+}
+
+.more-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.more-info p {
+    color: #F9F0E3;
+    text-align: center;
+    font-size: 99.728px;
+    white-space: nowrap;
+}
+
+.rsvp {
+    display: block;
+    text-decoration: none;
+    color: #F9F0E3;
+    text-align: center;
+    font-family: "TO Record";
+    font-size: 12px;
+    line-height: 30px;
+    letter-spacing: 3.6px;
+    position: relative;
+}
+
+.rsvp::after {
+    content: "";
+    display: block;
+    width: 226px;
+    height: 1px;
+    background-color: #F9F0E3;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.rsvp:hover::after {
+    width: 0;
+}
