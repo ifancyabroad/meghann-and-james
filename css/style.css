@@ -73,14 +73,32 @@ body {
 .details {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 50px;
     text-align: center;
     margin-bottom: 85px;
     padding: 0 20px;
 }
 
-.details h6 {
+.details .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail .hidden {
+    visibility: hidden;
+    height: 18px;
+}
+
+.detail .divider {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail h6 {
     font-family: "To Record", sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -88,7 +106,7 @@ body {
     margin-bottom: 12px;
 }
 
-.details p {
+.detail p {
     font-size: 45px;
     font-weight: 400;
     letter-spacing: -0.9px;
@@ -142,6 +160,21 @@ body {
 @media screen and (max-width: 768px) {
     body {
         padding: 60px 0 722px;
+    }
+
+    .venue-dates .dates {
+        padding: 0 10px;
+        max-width: 280px;
+        gap: 8px;
+    }
+
+    .venue-dates .dates p {
+        font-size: 32px;
+        color: #DADCD7;
+    }
+
+    .venue-dates .dates p:nth-child(2)::after {
+        width: 78px;
     }
 
     .details {
