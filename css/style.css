@@ -6,6 +6,8 @@ body {
 	font-family: "Mirtha Display", sans-serif;
 	background-color: #fcf6ee;
 	color: #704a1b;
+	padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
+		env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
 }
 
 body.home {
@@ -13,7 +15,11 @@ body.home {
 	background-size: cover;
 	background-position: center;
 	color: #133244;
-	padding: 120px 0 822px;
+	padding-bottom: 822px;
+}
+
+body.home nav a {
+	color: #133244;
 }
 
 header {
@@ -230,15 +236,11 @@ input[type="radio"]:checked + label {
 
 @media screen and (max-width: 768px) {
 	body.home {
-		padding: 60px 0 722px;
+		padding-bottom: 722px;
 	}
 
 	header {
 		padding: 30px 20px;
-	}
-
-	nav {
-		display: none;
 	}
 
 	.title-wrapper {
@@ -489,6 +491,15 @@ input[type="radio"]:checked + label {
 	margin-bottom: 10px;
 }
 
+.map-link {
+	display: block;
+	color: rgba(112, 74, 27, 0.7);
+	font-size: 16px;
+	font-family: "To Record", sans-serif;
+	text-decoration: underline;
+	margin-top: 20px;
+}
+
 .itinerary-image {
 	max-width: 100%;
 	width: 367px;
@@ -516,7 +527,7 @@ input[type="radio"]:checked + label {
 	flex: 1;
 }
 
-.travel-column > button {
+.travel-column > .button {
 	margin-top: 20px;
 }
 
