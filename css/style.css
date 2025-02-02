@@ -90,6 +90,50 @@ nav a {
 	margin-bottom: 0;
 }
 
+.button {
+	border: none;
+	height: 56px;
+	color: #f8f0e6;
+	background-color: #704a1b;
+	text-align: center;
+	font-size: 26px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	transition: background-color 0.3s;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #461515;
+}
+
+.button:disabled {
+	background-color: #dadcd7;
+	cursor: default;
+}
+
+.loader {
+	width: 32px;
+	height: 32px;
+	border: 3px solid #fff;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .link {
 	font-size: 24px;
 	line-height: 40px;
@@ -113,6 +157,75 @@ footer {
 	width: 314px;
 	max-width: 100%;
 	margin: auto;
+}
+
+input[type="text"],
+input[type="email"] {
+	font-family: "To Record", sans-serif;
+	height: 56px;
+	padding: 0 20px;
+	font-size: 16px;
+	border: none;
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible {
+	outline: 1px solid #704a1b;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+	color: rgba(112, 74, 27, 0.5);
+}
+
+.radio-button {
+	flex: 1;
+	height: 76px;
+	position: relative;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.radio-button:hover {
+	border-color: #704a1b;
+}
+
+.radio-button > label {
+	font-size: 16px;
+	font-family: "To Record", sans-serif;
+	line-height: 1.25;
+	letter-spacing: 0.16px;
+	color: #461515;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	width: max-content;
+	max-width: 90%;
+	text-align: center;
+	cursor: pointer;
+}
+
+input[type="radio"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: rgba(255, 255, 255, 0.7);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+input[type="radio"]:checked {
+	border: 1px solid #704a1b;
+	background-color: #fff;
+}
+
+input[type="radio"]:checked + label {
+	color: #704a1b;
 }
 
 @media screen and (max-width: 768px) {
@@ -403,24 +516,14 @@ footer {
 	flex: 1;
 }
 
+.travel-column > button {
+	margin-top: 20px;
+}
+
 .travel-links {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 20px;
-}
-
-.button {
-	border: none;
-	height: 56px;
-	color: #f8f0e6;
-	background-color: #704a1b;
-	text-align: center;
-	font-size: 26px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 20px;
-	margin-top: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -428,4 +531,55 @@ footer {
 		flex-direction: column;
 		gap: 40px;
 	}
+}
+
+/* RSVP PAGE */
+.rsvp-form {
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+	max-width: 446px;
+	margin: auto;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.form-group > label {
+	font-size: 14px;
+	font-family: "To Record", sans-serif;
+	font-weight: 400;
+	letter-spacing: 1.12px;
+	color: #461515;
+}
+
+.form-group > label sup {
+	font-size: 8px;
+}
+
+.radio-group {
+	display: flex;
+	gap: 12px;
+}
+
+.success-message {
+	font-family: "To Record", sans-serif;
+	font-size: 24px;
+	color: #461515;
+	text-align: center;
+}
+
+.error-message {
+	font-family: "To Record", sans-serif;
+	font-size: 18px;
+	color: #ff0000;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.hide {
+	display: none;
 }

@@ -26,6 +26,133 @@
 					<h1 class="page-title">RSVP</h1>
 					<div class="underline"></div>
 				</div>
+
+				<section>
+					<form class="rsvp-form">
+						<div class="form-group">
+							<label for="name">NAME OF GUESTS*</label>
+							<input
+								type="text"
+								id="name"
+								name="Name of Guests*"
+								placeholder="Name of guests"
+								required
+							/>
+						</div>
+						<div class="form-group">
+							<label>YOUR RESPONSE*</label>
+							<div class="radio-group">
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="accept"
+										name="Your Response*"
+										value="Joyfully Accepts"
+										required
+									/>
+									<label for="accept">Joyfully Accepts</label>
+								</div>
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="decline"
+										name="Your Response*"
+										value="Regretfully Declines"
+										required
+									/>
+									<label for="decline"
+										>Regretfully Declines</label
+									>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="guests">DIETRY REQUIREMENTS</label>
+							<input
+								type="text"
+								id="diet"
+								name="Dietry requirments"
+								placeholder="List any diet restrictions"
+							/>
+						</div>
+						<div class="form-group">
+							<label
+								>ATTENDING WELCOME DRINKS THE 12<sup>TH</sup>
+								JUNE?*</label
+							>
+							<div class="radio-group">
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="accept_drinks"
+										name="Attending welcome drinks the 12th June?"
+										value="Yes"
+										required
+									/>
+									<label for="accept_drinks">Yes</label>
+								</div>
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="decline_drinks"
+										name="Attending welcome drinks the 12th June?"
+										value="No"
+										required
+									/>
+									<label for="decline_drinks">No</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label
+								>ATTENDING DEBRIEF AFTERPARTY 14<sup>TH</sup>
+								JUNE*</label
+							>
+							<div class="radio-group">
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="accept_debrief"
+										name="Attending debrief afterparty 14th June?"
+										value="Yes"
+										required
+									/>
+									<label for="accept_debrief">Yes</label>
+								</div>
+								<div class="radio-button">
+									<input
+										type="radio"
+										id="decline_debrief"
+										name="Attending debrief afterparty 14th June?"
+										value="No"
+										required
+									/>
+									<label for="decline_debrief">No</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="guests"
+								>A SONG TO GET YOU ON THE DANCEFLOOR</label
+							>
+							<input
+								type="text"
+								id="song"
+								name="A song to get you on the dancefloor"
+								placeholder="List one song for the dancefloor"
+							/>
+						</div>
+						<button class="button" type="submit">
+							<span class="button-text">SUBMIT</span>
+							<span class="loader hide"></span>
+						</button>
+					</form>
+
+					<p class="success-message hide">Thank you for your RSVP!</p>
+					<p class="error-message hide">
+						There was an error with your RSVP, please try again.
+					</p>
+				</section>
 			</div>
 		</main>
 		<footer>
@@ -36,4 +163,40 @@
 			/>
 		</footer>
 	</body>
+
+	<script>
+		const form = document.querySelector(".rsvp-form");
+		const loader = document.querySelector("button .loader");
+		const button = document.querySelector("button");
+		const buttonText = document.querySelector("button .button-text");
+		const successMessage = document.querySelector(".success-message");
+		const errorMessage = document.querySelector(".error-message");
+
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+			button.disabled = true;
+			loader.classList.remove("hide");
+			buttonText.classList.add("hide");
+			const formData = new FormData(form);
+			fetch(
+				"https://script.google.com/macros/s/AKfycbyVFYiLUTJ4s4lA-mXn1D15LNb7tQRZX_zS9xgoi9OlFglDE0y63lDaBShkaLmGz1OO3Q/exec",
+				{
+					method: "POST",
+					body: formData,
+				}
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					form.reset();
+					form.classList.add("hide");
+					successMessage.classList.remove("hide");
+				})
+				.catch((error) => {
+					button.disabled = false;
+					loader.classList.add("hide");
+					buttonText.classList.remove("hide");
+					errorMessage.classList.remove("hide");
+				});
+		});
+	</script>
 </html>
